@@ -6,25 +6,37 @@ const Father = styled.div`
   display: flex;
 `;
 
-const Box = styled.div`
-  background-color: ${(props) => props.bgColor};
-  width: 100px;
-  height: 100px;
+const Btn = styled.button`
+  color: white;
+  background-color: tomato;
+  border: 0;
+  border-radius: 15px;
 `;
 
-// style이 다른 컴포넌트의 style과 중복되는 경우 확장하려는 컴포넌트 명을 적어 중복성을 줄일 수 있다.
-const Circle = styled(Box)`
-  border-radius: 50px;
-`;
+/* HTML 태그의 속성 값 설정
+attrs 함수로, input 태그에 있는 속성값을 가질 수 있다
+같은 태그에 같은 속성을 사용한다면 attrs에 속성값만 추가하여 사용 가능 */
 
-// 1. prop을 사용하여 각각의 style을 적용시킬 수 있다.
+const Input = styled.input.attrs({ placeholder: "hello" })`
+  background-color: tomato;
+`;
 
 function App() {
   return (
-    <Father>
-      <Box bgColor="teal"></Box>
-      <Circle bgColor="tomato"></Circle>
-    </Father>
+    <>
+      {/* as를 통해 스타일 속성은 같으나 html태그를 다르게 사용할 수 있음
+       */}
+      <Father>
+        <Btn>button</Btn>
+        <Btn as="a">button</Btn>
+      </Father>
+
+      <Father>
+        <Input />
+        <Input />
+        <Input />
+      </Father>
+    </>
   );
 }
 
