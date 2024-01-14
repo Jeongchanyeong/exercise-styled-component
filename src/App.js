@@ -6,31 +6,24 @@ const Father = styled.div`
   display: flex;
 `;
 
-const BoxOne = styled.div`
-  background-color: teal;
+const Box = styled.div`
+  background-color: ${(props) => props.bgColor};
   width: 100px;
   height: 100px;
 `;
 
-const BoxTwo = styled.div`
-  background-color: tomato;
-  width: 100px;
-  height: 100px;
+// style이 다른 컴포넌트의 style과 중복되는 경우 확장하려는 컴포넌트 명을 적어 중복성을 줄일 수 있다.
+const Circle = styled(Box)`
+  border-radius: 50px;
 `;
 
-const Text = styled.span`
-  color: white;
-`;
+// 1. prop을 사용하여 각각의 style을 적용시킬 수 있다.
 
 function App() {
   return (
     <Father>
-      <BoxOne>
-        <Text>Hello</Text>
-      </BoxOne>
-      <BoxTwo>
-        <Text>Hi</Text>
-      </BoxTwo>
+      <Box bgColor="teal"></Box>
+      <Circle bgColor="tomato"></Circle>
     </Father>
   );
 }
