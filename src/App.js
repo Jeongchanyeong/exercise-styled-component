@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ const Title = styled.h1`
 function App() {
   return (
     <Wrapper>
-      <Title>HELLO</Title>
+      <Title>HI</Title>
     </Wrapper>
   );
 }
